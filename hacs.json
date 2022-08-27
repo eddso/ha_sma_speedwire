@@ -1,0 +1,5 @@
+{
+    "name": "SMA SpeedWire Integration",
+    "homeassistant": "2022.8",
+    "render_readme": false
+}

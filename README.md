@@ -3,7 +3,17 @@
 Custom integration for Home Assistant to connect SMA inverters via SpeedWire protocol
 
 ## Installation
-Note: Restart is always required after installation.
+### a) Install over HACS
+ToDo
+### b) Install manual
+Download and install over Terminal:
+```
+cd config/custom_components
+wget https://github.com/eddso/ha_sma_speedwire/archive/refs/heads/main.tar.gz
+tar --strip-components=3 -xzf main.tar.gz ha_sma_speedwire-main/custom_components/sma_speedwire
+```
+### Restart 
+After install restart Home-Assistant under the  Configuration -> System -> Restart
 
 ## Setup
 After installation, you should find **SMA SpeedWire** under the Configuration -> Integrations -> Add integration.
