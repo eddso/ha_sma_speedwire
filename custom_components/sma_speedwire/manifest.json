@@ -1,0 +1,11 @@
+{
+    "domain": "sma_speedwire",
+    "name": "SMA SpeedWire",
+    "config_flow": true,
+    "documentation": "https://www.home-assistant.io/integrations/sma_speedwire",
+    "requirements": [],
+    "codeowners": ["@eddso"],
+    "iot_class": "local_polling",
+    "version": "0.0.1",
+    "loggers": ["sma_speedwire"]
+}
