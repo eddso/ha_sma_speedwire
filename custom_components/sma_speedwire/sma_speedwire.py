@@ -256,14 +256,18 @@ class SMA_SPEEDWIRE:
                     pkt_id = unpack_from("H", data, offset=40)[0]
                     error = unpack_from("I", data, offset=36)[0]
                     pkt_id &= 0x7FFF
-                    if (pkt_id != self.pkt_id) or (error != 0):
+                    # if (pkt_id != self.pkt_id) or (error != 0):
+                    if error != 0:
                         self.logger.debug("Req/Rsp: Packet ID %X/%X, Error %d" % (self.pkt_id, pkt_id, error))
                         raise smaError("Inverter answer does not match our parameters.")
+                    if (pkt_id != self.pkt_id):
+                        self.pkt_id = pkt_id
                 else:
                     raise smaError("Format of inverter response does not fit.")
                 return data
             except TimeoutError as e:
                 self.logger.error("Timeout")
+                # pass
                 continue
 
             raise smaError("No response")
