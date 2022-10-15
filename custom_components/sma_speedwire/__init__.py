@@ -30,9 +30,9 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         """Fetch data from the API."""
         try:
             await hass.async_add_executor_job(api.update)
-            return api
         except (smaError) as exception:
             pass
+        return api
 
     coordinator = DataUpdateCoordinator(
         hass,
@@ -48,10 +48,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     hass.data.setdefault(DOMAIN, {})
     hass.data[DOMAIN][entry.entry_id] = coordinator
 
-    #hass.config_entries.async_setup_platforms(entry, PLATFORMS)
     # hass version 2022.8+
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
 
+    # hass.config_entries.async_setup_platforms(entry, PLATFORMS)
     return True
 
 
