@@ -1,5 +1,7 @@
 # SMA SpeedWire Integration for Home Assistant  
 
+# I don't work on this integration sins my inverter died, can't test changes, sorry.
+
 Custom integration for Home Assistant to connect SMA inverters via SpeedWire protocol. The integration polls every 5 minutes only 3 entities because i only needed it for my Energy Dashboard:
 - Energy production total in kWh
 - Energy production today in kWh
