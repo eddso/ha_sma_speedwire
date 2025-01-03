@@ -10,8 +10,8 @@ from homeassistant.components.sensor import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     CONF_HOST,
-    ENERGY_KILO_WATT_HOUR,
-    POWER_WATT,
+    UnitOfEnergy.KILO_WATT_HOUR,
+    UnitOfPower.WATT,
 )
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.entity import DeviceInfo
@@ -54,11 +54,11 @@ class SMASensor(CoordinatorEntity, SensorEntity):
         if coordinator.data.sensors[sensor]['unit'] == 'kWh':
             self._attr_state_class = SensorStateClass.TOTAL_INCREASING
             self._attr_device_class = SensorDeviceClass.ENERGY
-            self._attr_native_unit_of_measurement = ENERGY_KILO_WATT_HOUR
+            self._attr_native_unit_of_measurement = UnitOfEnergy.KILO_WATT_HOUR
         elif coordinator.data.sensors[sensor]['unit'] == 'W':
             self._attr_state_class = SensorStateClass.MEASUREMENT
             self._attr_device_class = SensorDeviceClass.POWER
-            self._attr_native_unit_of_measurement = POWER_WATT
+            self._attr_native_unit_of_measurement = UnitOfPower.WATT
     
         # https://developers.home-assistant.io/docs/device_registry_index/
         self._attr_device_info = DeviceInfo(
